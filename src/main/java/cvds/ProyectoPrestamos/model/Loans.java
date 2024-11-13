@@ -37,6 +37,35 @@ public class Loans {
         this.studientId = studientId;
         this.studientName = studientName;
     }
+
+    public void setID(Long ID) {
+        this.ID = ID;
+    }
+
+    public void setBookCode(String bookCode) {
+        this.bookCode = bookCode;
+    }
+
+    public void setLoandDate(LocalDate loandDate) {
+        this.loandDate = loandDate;
+    }
+
+    public void setReturnDate(LocalDate returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public void setLoanState(LoanState loanState) {
+        this.loanState = loanState;
+    }
+
+    public void setStudientId(String studientId) {
+        this.studientId = studientId;
+    }
+
+    public void setStudientName(String studientName) {
+        this.studientName = studientName;
+    }
+
     public Long getID() {
         return ID;
     }
