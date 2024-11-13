@@ -17,6 +17,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import static cvds.ProyectoPrestamos.model.LoanState.Prestado;
@@ -180,7 +181,7 @@ public class LoanService {
         if (loan.isEmpty()) {
             throw new BookLoanException(BookLoanException.ErrorType.NO_LOAN_FOUND);
         }
-        repository.delete(loan);
+        repository.deleteById(loan.get().getID());
         updateBookState(bookCode, LoanState.Devuelto);
         updateHistory(loanState, bookCode, generateStudentName(studentId));
     }
@@ -250,6 +251,15 @@ public class LoanService {
                 connection.disconnect();
             }
         }
+    }
+
+    public List<Loans> showAllloans(){
+        return repository.findAll();
+    }
+
+
+    public List<History> showHistory(){
+        return historyRepository.findAll();
     }
 
     /**

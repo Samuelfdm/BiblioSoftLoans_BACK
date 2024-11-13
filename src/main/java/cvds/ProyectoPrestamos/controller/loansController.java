@@ -1,10 +1,12 @@
 package cvds.ProyectoPrestamos.controller;
 
+import cvds.ProyectoPrestamos.model.History;
 import cvds.ProyectoPrestamos.model.Loans;
 import cvds.ProyectoPrestamos.service.LoanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -59,5 +61,15 @@ public class loansController {
     @PostMapping("/return")
     public void returnBook(@RequestBody Loans loan) {
         service.returnBook(loan.getLoanState(), loan.getBookCode(), loan.getStudientId());
+    }
+
+    @GetMapping
+    public List<Loans> showAllloans(){
+        return service.showAllloans();
+    }
+
+    @GetMapping("/history")
+    public List<History> showHistory(){
+        return service.showHistory();
     }
 }

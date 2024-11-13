@@ -28,8 +28,6 @@ public class Loans {
     private String studientId;
     @Column(nullable = false)
     private String studientName;
-    @Autowired
-    private RestTemplate restTemplate;
 
     public Loans(String studientId,String studientName,LocalDate returnDate, LoanState loanState,String bookCode) {
         this.returnDate = returnDate;
